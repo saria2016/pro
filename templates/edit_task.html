@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Simple Task Management</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" rel="stylesheet">  
+
+        <link href="/static/assets/css/style.css" rel="stylesheet">
+      </head>
+
+    <body>
+            
+        <!-- <div class="category-name">Basic Cards</div> <br/> -->
+            
+        
+
+
+
+        <div class="card-category-1">
+          <div class="basic-card basic-card-light">
+            <div class="card-content">
+              <div class="card-content-left">
+                <!-- <img src="./task1.png" alt="" height="350px" width="100%"> -->
+              </div>
+              <div class="card-content-right">
+                  <div class="container">
+                    <form action="/update_task/{{task.id}}" method="POST">
+                      <div class="form-field">
+                        <label for="name">Task Name:</label>
+                        <input type="text" id="name" name="name" value="{{ task.task_name }}" required>
+                        <span id="nameError" class="error-message"></span>
+                      </div>
+                      <div class="form-field">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" value="{{ task.task_date }}" required>
+                        <span id="emailError" class="error-message"></span>
+                      </div>
+                      <div class="form-field">
+                        <label for="time">Time:</label>
+                        <input type="time" id="time" name="time" value="{{ task.task_time }}" required>
+                        <span id="passwordError" class="error-message"></span>
+                      </div>
+                      <br>
+                      <div class="form-field">
+                        <input type="submit" class="btn-success" value="Edit">
+                        
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <br/>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="alert">
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      
+
+        <!-- <script src="ScriptCards.js"></script> -->
+    </body>
+</html>

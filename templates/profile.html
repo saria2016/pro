@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Simple Task Management</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" rel="stylesheet">  
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+        <link href="../static/css/style.css" rel="stylesheet">
+      </head>
+
+    <body>
+            
+        <!-- <div class="category-name">Basic Cards</div> <br/> -->
+            
+        
+
+
+
+        <div class="card-category-1">
+          <div class="basic-card basic-card-light">
+            <div class="card-content">
+              <div class="card-content-left">
+                <div>
+                  <input type="submit" class="btn-light" value="Logout">
+                  <input type="submit" class="btn-light" value="Tasks">
+
+                </div>
+
+              </div>
+              
+              </div>
+            </div>
+          </div>
+        <br/>
+        
+        <!-- {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="alert">
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %} -->
+
+      <br>
+        <!-- Image Cards -->
+        <div class="card-category-2">
+          <ul>
+            <!-- {% for task in tasks %} -->
+            <li>
+              <div class="img-card iCard-style2">
+                <div class="container">
+                    <form action="/add_task" method="POST">
+                      <div class="form-field">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                      </div>
+                      <div class="form-field">
+                        <label for="date">Email:</label>
+                        <input type="email" id="email" name="email" disabled required>
+                      </div>
+                      <div class="form-field">
+                        <label for="time">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                      </div>
+                      <!-- <div class="form-field">
+                        <label for="status">Status:</label>
+                        <input type="text" id="status" name="status" required>
+                      </div> -->
+                      <br>
+                      <div class="form-field">
+                        <input type="submit" class="btn-primary" value="Update">
+                      </div>
+                    </form>
+                  </div>
+              </div>
+            </li>
+            <!-- {% endfor %} -->
+          </ul>
+        </div>
+        <br/>
+        
+      
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+          $(document).ready(function() {
+            $('.size').change(function() {
+              var checkbox = $(this);
+              var buttonDiv = checkbox.closest('.img-card').find('.card-link');
+              
+              if (checkbox.is(':checked')) {
+                buttonDiv.hide();
+              } else {
+                buttonDiv.show();
+              }
+            });
+          });
+        </script>
+      </body>
+</html>
